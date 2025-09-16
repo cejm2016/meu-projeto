@@ -1,9 +1,11 @@
-#aula hash lira.
+#aula Python
 #passo 1
 
 import pyautogui
 import time
 import pandas
+import numpy
+
 
 pyautogui.PAUSE = 0.5
 
@@ -27,38 +29,40 @@ pyautogui.press("enter")
 tabela = pandas.read_csv("produtos.csv")
 print(tabela)
 time.sleep(1)
-print(pyautogui.position())
-pyautogui.click(x=707, y=292)
 
-codigo = "A01234567B"
-pyautogui.write(codigo)
-pyautogui.press("tab")
+for linha in tabela.index:
+    
+    pyautogui.click(x=707, y=292)
 
-marca = "Samsung"
-pyautogui.write(marca)
-pyautogui.press("tab")
+    codigo = tabela.loc[linha, "codigo"]
+    pyautogui.write(codigo)
+    pyautogui.press("tab")
 
-tipo = "Tela"
-pyautogui.write(tipo)
-pyautogui.press("tab")
+    marca = tabela.loc[linha, "marca"]
+    pyautogui.write(marca)
+    pyautogui.press("tab")
 
-categoria = "Eletronicos"
-pyautogui.write(categoria)
-pyautogui.press("tab")
+    tipo = tabela.loc[linha, "tipo"]
+    pyautogui.write(tipo)
+    pyautogui.press("tab")
 
-preco_unitario = "1000.00"
-pyautogui.write(preco_unitario)
-pyautogui.press("tab")
+    categoria = str (tabela.loc[linha, "categoria"])
+    pyautogui.write(categoria)
+    pyautogui.press("tab")
 
-custo = "800.00"
-pyautogui.write(custo)
-pyautogui.press("tab")
+    preco_unitario = str (tabela.loc[linha, "preco_unitario"])
+    pyautogui.write(preco_unitario)
+    pyautogui.press("tab")
 
-obs = ""
-pyautogui.write(obs)
-pyautogui.press("tab")
+    custo = str (tabela.loc[linha, "custo"])
+    pyautogui.write(custo)
+    pyautogui.press("tab")
 
-pyautogui.press("enter")
+    obs = str (tabela.loc[linha, "obs"])
+    pyautogui.write(obs)
+    pyautogui.press("tab")
 
-pyautogui.scroll(2000)
+    pyautogui.press("enter")
+
+    pyautogui.scroll(2000)
 
