@@ -1,5 +1,5 @@
-#aula Python
-#passo 1
+#Python com pyautogui... automatizando trabalho de inserção de dados planilhados do CSV para uma base hospedada ou SITE.
+#Essa ideia foi construida com curso.
 
 import pyautogui
 import time
